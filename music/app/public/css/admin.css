@@ -1,0 +1,206 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#box{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+/* 轮播图管理盒子 */
+#picmsg-box,#musicmsg-box{
+    width: 600px;
+    border: 1px solid gainsboro;
+    margin:50px auto;
+}
+
+h2{
+    background-color: lightblue;
+    padding: 5px;
+}
+
+#picList,#musicList{
+    width: 570px;
+    height: 400px;
+    overflow: auto;
+    color: rgb(104, 101, 101);
+    margin: 5px auto 0;
+}
+#picList p,
+#musicList p{
+    height: 50px;
+    line-height: 50px;
+}
+.table{
+    width: 570px;
+    text-align: center;
+    margin:20px auto;
+    border-collapse: collapse;
+    border: 1px solid rgb(186, 184, 184);
+    table-layout:fixed;
+}
+.table tr{
+    height: 40px;
+    border: 1px solid gainsboro;
+}
+.table tr th:nth-of-type(1){
+    width: 400px;
+}
+.table tr td{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; 
+}
+
+
+.table thead tr{
+    background-color: rgb(233, 232, 232);
+}
+.table tbody tr:nth-of-type(even){
+    background-color: rgb(233, 232, 232);
+}
+.table tbody tr:hover{
+    background-color: rgb(213, 234, 230);
+    transition:  background-color linear 0.2s;
+    -webkit-transition:  background-color linear 0.2s;
+    -moz-transition:  background-color linear 0.2s;
+    -ms-transition:  background-color linear 0.2s;
+    -o-transition:  background-color linear 0.2s;
+}
+
+
+
+#uploadPic p,
+#uploadMusic p{
+    background-color: rgb(208, 233, 241);
+    padding: 10px;
+    margin-bottom: 10px;
+}
+#uploadPic div,
+#uploadMusic div{
+    margin:0 10px 20px;
+    display: flex;
+    justify-content: space-between;
+
+}
+#picFile{
+    width: 180px;
+}
+
+
+/* 音乐管理 */
+#musicmsg-box{
+    position: relative;
+}
+#musicList>div{
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+/* 选择框样式 */
+#musicType{
+    width: 150px;
+    height:30px;
+    outline: none;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.add,.edit{
+    width: 70px;
+    height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+/* 新增分类弹出框样式 */
+#addType,#editType{
+    display: none;
+    width: 300px;
+    border: 1px solid gainsboro;
+    border-radius:10px ;
+    background-color: rgb(243, 246, 243);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    animation:fadeIn 0.5s;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    -webkit-border-radius:10px ;
+    -moz-border-radius:10px ;
+    -ms-border-radius:10px ;
+    -o-border-radius:10px ;
+    -webkit-animation:fadeIn 0.5s;
+}
+
+#addType p:first-of-type,
+#editType p:first-of-type{
+  background-color: rgb(208, 233, 241);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 10px;
+}
+#addType #newTypeName{
+    width:240px;
+    height: 30px;
+    padding-left: 10px;
+    border-radius: 5px;
+    margin: 20px 30px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+#addType .btn,
+#editType .btn{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+#addType .btn button,
+#editType .btn button{
+    width: 50px;
+    height: 25px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+#editType table{
+    width: 280px;
+    text-align: center;
+    margin:20px auto;
+    border-collapse: collapse;
+    border: 1px solid rgb(186, 184, 184);
+    table-layout:fixed;
+}
+
+#editType table tr{
+    height: 40px;
+    border: 1px solid gainsboro;
+}
+#editType table tr th:nth-of-type(1){
+    width: 200px;
+}
+
+#editType table tbody td,
+#editType table thead th{
+    cursor: default;
+    border: 1px solid gainsboro;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; 
+}

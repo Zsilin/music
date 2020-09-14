@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱尚音乐</title>
+    <link rel="icon" href="../img/apo80-fieol-001.ico" type="image/x-ico">
+    <!-- 动画 -->
+    <link rel="stylesheet" href="../css/animate.min.css">
+    <!-- axios -->
+    <script src="../js/axios.min.js"></script>
+    <!-- swiper轮播图 -->
+    <link  rel="stylesheet" href="../css/swiper.min.css">
+    <!-- swiperjs -->
+    <script src="../js/swiper.min.js"></script>
+
+    <link rel="stylesheet" href="../css/loginRegist.css">
+    <link rel="stylesheet" href="../css/user.css">
+
+</head>
+
+<body>
+    <div id="box">
+        <!-- 登录注册框 -->
+        <div id="login-regist-box">
+            <span class="close">&times;</span>
+            <h1>欢迎登录爱尚音乐</h1>
+            <div id="type-box">
+                <div id="login-btn" class="choose">登录</div>
+                <div id="regist-btn">注册</div>
+            </div>
+
+            <!-- 登录窗口 -->
+            <div id="login-box">
+                <input type="text" id="login-name" placeholder="用户名">
+                <input type="password" id="login-pwd" placeholder="密码">
+                <p class="login-tip">账号或者密码错误，请重新输入</p>
+                <div class="type">
+                    <label> <input type="radio" name="type" value="user" style="margin-right: 10px;">普通用户</label>
+                    <label> <input type="radio" name="type" value="admin" style="margin-right: 10px;">管理员</label>
+                </div>
+                <button id="login">登录</button>
+            </div>
+
+            <!-- 注册窗口 -->
+            <div id="regist-box">
+                <input type="text" id="regist-name" placeholder="用户名">
+                <p class="regist-name-tip">用户名为2-6个字符</p>
+                <input type="password" id="regist-pwd" placeholder="密码">
+                <p class="regist-pwd-tip fail">密码为6-18位</p>
+                <button id="regist">注册</button>
+            </div>
+
+        </div>
+
+        <!-- 导航 -->
+        <nav id="nav-box">
+            <div class="nav-content">
+                <div class="logo">
+                    音悦台
+                </div>
+                <div class="nav-list">
+                    <ul>
+                        <li><a href="javascript:;">发现音乐</a></li>
+                        <li><a href="javascript:mysong();">我的音乐</a></li>
+                        <li><a href="javascript:admin();">音乐管理员</a></li>
+                        <li><a href="javascript:;">下载客户端</a></li>
+                    </ul>
+                </div>
+                <div class="search">
+                    <input type="text"><button>搜索</button>
+                </div>
+                <div class="login">
+                    <a href="javascript:showLoginBox();">请登录</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- 轮播图 -->
+        <div id="lunbo-box">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <!-- <div class="swiper-slide"><img src=""></div> -->
+                </div>
+                <!-- 如果需要分页器 -->
+                <div class="swiper-pagination"></div>
+
+                <!-- 如果需要导航按钮 -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+
+        <!-- 分类的音乐列表 -->
+        <div id="music-menu-box">
+            <div class="title">分类专区</div>
+            <div id="menu-box">
+                <div class="menu">
+                    <div class="menu-bg"> </div>
+                    <div class="menu-content">
+                        <div>title</div>
+                        <ul></ul>
+                    </div>
+                </div>
+                <div class="menu">
+                    <div class="menu-bg"> </div>
+                    <div class="menu-content">
+                        <div>title</div>
+                        <ul></ul>
+                    </div>
+                </div>
+                <div class="menu">
+                    <div class="menu-bg"> </div>
+                    <div class="menu-content">
+                        <div>title</div>
+                        <ul></ul>
+                    </div>
+                </div>
+                <div class="menu">
+                    <div class="menu-bg"> </div>
+                    <div class="menu-content">
+                        <div>title</div>
+                        <ul></ul>
+                    </div>
+                </div>
+                <div class="menu">
+                    <div class="menu-bg"> </div>
+                    <div class="menu-content">
+                        <div>title</div>
+                        <ul> </ul>
+                    </div>
+                </div>
+                <div class="menu">
+                    <div class="menu-bg"> </div>
+                    <div class="menu-content">
+                        <div>title</div>
+                        <ul></ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- audio控件 -->
+        <div id="show-audio">
+            <div id="audio-box">
+                <div id="audio-content">
+                    <div class="prev-music"><img src="../img/prev.png" title="上一曲"></div>
+                    <div style="position: relative; margin-right: 10px;">
+                        <p class="music-name"></p>
+                        <audio controls id="audio"></audio>
+                    </div>
+                    <div class="next-music"><img src="../img/next.png" title="下一曲"></div>
+                    <div class="snap-list-box">
+                        <div class="snap-list-btn">
+                            <img src="../img/list.png">
+                            <div class="snap-list">
+                                <h3>临时播放列表</h3>
+                                <hr>
+                                <ul class="snap-list-content">
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 页脚 -->
+        <div class="bottom-box">
+            <div class="content-box">
+                <div class="content-box-left">
+                    <div class="left-title">下载音悦台客户端</div>
+                    <div class="left-content">
+                        <div class="left-ImgOne">
+                            <div class="left-imgone">
+                                <img src="../img/footer.png">
+                            </div>
+                            <p>PC版</p>
+                        </div>
+                        <div class="left-ImgTwo">
+                            <div class="left-imgtwo">
+                                <img src="../img/footer.png">
+                            </div>
+                            <p>MAC版</p>
+                        </div>
+                        <div class="left-ImgThree">
+                            <div class="left-imgthree">
+                                <img src="../img/footer.png">
+                            </div>
+                            <p>Android版</p>
+                        </div>
+                        <div class="left-ImgFour">
+                            <div class="left-imgfour">
+                                <img src="../img/footer.png">
+                            </div>
+                            <p>iphone版</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-box-center">
+                    <div class="center-title">特色产品</div>
+                    <div class="center-content">
+                        <div class="center-ImgOne">
+                            <div class="center-imgone">
+                                <img src="../img/footer.png">
+                            </div>
+                            <p>全民K歌</p>
+                        </div>
+                        <div class="center-ImgTwo">
+                            <div class="center-imgtwo">
+                                <img src="../img/footer.png">
+                            </div>
+                            <p>Super Sound</p>
+                        </div>
+                        <div class="center-ImgThree">
+                            <div class="center-imgthree">
+                                <img src="../img/footer.png">
+                            </div>
+                            <p>QPlay</p>
+                        </div>
+                        <div class="center-ImgFour">
+                            <div class="center-imgfour">
+                                <img src="../img/footer.png">
+                            </div>
+                            <p>Fan直播伴侣</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-box-right">
+                    <div class="right-title">合作链接</div>
+                    <div class="right-content">
+                        <a href="#">CJ ENM</a>
+                        <a href="#">腾讯视频</a>
+                        <a href="#">手机QQ空间</a>
+                        <a href="#">最新版QQ</a>
+                        <a href="#">腾讯社交广告</a>
+                        <a href="#">电脑管家</a>
+                        <a href="#">QQ浏览器</a>
+                        <a href="#">腾讯微云</a>
+                        <a href="#">腾讯云</a>
+                        <a href="#">企鹅FM</a>
+                        <a href="#">智能电视网</a>
+                        <a href="#">当贝市场</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="footer-box-one">
+                    <a href="#">关于音悦台</a>|
+                    <a href="#">About Music</a>|
+                    <a href="#">服务条款</a>|
+                    <a href="#">用户服务协议</a>|
+                    <a href="#">隐私政策</a>|
+                    <a href="#">权力声明</a>|
+                    <a href="#">广告服务</a>|
+                    <a href="#">音悦台招聘</a>|
+                    <a href="#">客服中心</a>|
+                    <a href="#">网站导航</a>
+                </div>
+                <div class="footer-box-two">Copyright © 1998 - 2020 Yinyuetai. All Rights Reserved.</div>
+                <div class="footer-box-three">音悦台公司 版权所有 音悦台网络文化经营许可证</div>
+            </div>
+        </div>
+
+
+        <div id="success">收藏成功</div>
+    </div>
+
+    <!-- 登录注册窗口js -->
+    <script src="../js/loginRest.js"></script>
+    <!-- user 页面的js -->
+    <script src="../js/user.js"></script>
+    
+</body>
+
+</html>
